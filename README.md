@@ -71,11 +71,33 @@ The goal is to find loading conditions that produce **maximum stress** in a stru
 ```
 ├── BO_ANSYS_WAIT.py              # Main optimisation script
 ├── plot_results.py               # Post-optimisation plotting (uses saved model)
-├── Ansys_Automation_Script.txt   # IronPython script for ANSYS Mechanical scripting console
 ├── results_with_loads.xlsx       # Initial training data (200 FEA samples)
 ├── new_loads_results.xlsx        # Hold-out test set (50 samples)
+├── Ansys_Simulation_Files.zip    # ANSYS project, CAD model & automation script (see below)
 └── README.md                     # This file
 ```
+
+### ANSYS Simulation Files (`Ansys_Simulation_Files.zip`)
+
+This ZIP archive contains all the files needed to run the ANSYS side of the
+optimisation loop. **After downloading, unzip it and place all its contents in
+the same directory as the Python scripts and Excel files above.** Your folder
+should look like this after extraction:
+
+```
+├── BO_ANSYS_WAIT.py
+├── plot_results.py
+├── results_with_loads.xlsx
+├── new_loads_results.xlsx
+├── Ansys_Automation_Script.txt       # IronPython script for the ANSYS Mechanical scripting console
+├── Ansys_Sim.wbpj                    # ANSYS Workbench project file
+├── Ansys_Sim_files/                  # ANSYS project support folder (meshes, solver settings, etc.)
+├── .Ansys_Sim_files.backup/          # ANSYS automatic backup folder
+└── link.prt.3                        # CAD geometry (Creo/ProE part file)
+```
+
+> **Important:** All files must reside in the **same flat directory** — do not
+> leave them inside a nested sub-folder after unzipping.
 
 **Files generated after running `BO_ANSYS_WAIT.py`:**
 
@@ -421,3 +443,4 @@ Final test-set evaluation. Seven headerless columns:
 ## License
 
 This project is provided as-is for academic and research purposes.
+
